@@ -1,18 +1,74 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\documentclass[twocolumn, letterpaper, 12pt, twoside]{article}
+\usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{wrapfig}
 \usepackage{geometry}
+\usepackage{float}
+\geometry{margin=1in}
 
-\title{ME 201 Writeup}
-\author{Warner Vance}
-\date{August 2024}
+  
+\title{%
+    Crane Project Report \\
+\large ME 201
+}
+
+\author{Warner Vance, Sam Sierra, Malini Krejcarek}
+\date{23 August 2024}
 
 \begin{document}
-
 \maketitle
 
 \section{Introduction}
-Hello we
+The goal of this project was to make a crane capable of lifting a heavy object as fast as possible using as little mass as possible. 
+We were given a chassis, motors, pulleys,  and a microcontroller, everything else we had to make ourselves. 
+This includes several aluminum scaffolding components, a base made of HDPE, structural braces, and a wooden support implement. 
 
+\section{Design}
+\subsection{Pulley System}
+\label{sec:Pulley}
+We decided early on make a simple crane, so that we could focus our efforts on optimization.  
+We wanted to lift 2.1 kg, and we designed the crane around it. 
+Our first major decision was the pulley system we planned to use. 
+We did some quick math and determined that a block and tackle system that split the tension in half would be best. 
+Using a spreadsheet, we came up with an equation for the relationship between torque and rotational speed of a motor. 
+This equation was then multiplied by two to account for the fact that two motors were being used. 
+This equation was then put into EES along with an equation that related the torque to the radius of the pulley and the weight of the object being pulled up.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =\linewidth]{Torque_Speed.png}
+    \caption{A graph of the relationship between the radius of the drive pulley and the vertical velocity of the object being lifted. Torque delivered from the motors is also included for reference.}
+    \label{fig:Torque_Speed}
+\end{figure}
+
+We derived the vertical velocity of the object from the radius of the drive pulley and the rotational speed of the motor. 
+The subsequent parametric study and graph showed that 1 inch was the idea drive pulley radius because it maximized the vertical velocity of the object being lifted.  This can be seen in Figure \ref{fig:Torque_Speed}.
+This translated to a torque of around .28 n-m
+
+
+\subsection{Counterweight}
+\label{sec:Counterweight}
+We then moved on to calculating both the mass and the position of the counter weight. 
+First we repeated an earlier lab procedure to find the center of mass of the crane using equations    . 
+
+\begin{align}
+        w_{\text{tip}}= & m_{\text{tip}} * 9.8 \\
+        t_{\text{tip}}= & w_{\text{tip}}*x_{\text{boom}}\label{eq:Torque 1} \\ 
+        t_{\text{tip}}= & w_{\text{crane}}*x_{\text{cm}}\label{eq:Torque 2} \\
+        x_{\text{cm}}= & \frac{t_{\text{tip}}}{w_{\text{crane}}}
+\end{align}
+
+\begin{equation}
+    \begin{split}
+        \text{Where:} \\
+        m_{\text{tip}} & \text{ is the mass of the object that makes the crane tip} \\
+        w_{\text{tip}} & \text{ is the weight of } m_{\text{tip}} \\
+        x_{\text{out}} & \text{ is the x from the center of the crane to the where the mass is hung} \\
+        t_{\text{tip}} & \text{ is the torque from the object that makes the crane tip} \\
+        w_{\text{crane}} & \text{ is the weight of the crane without the counterweight} \\
+        x_{\text{cm}} & \text{ is the x from the lifting side wheel to the center of mass of the crane.} \\
+    \end{split}
+\end{equation}
+
+Equation \ref{eq:Torque 1} and \ref{eq:Torque 2} are made possible by the fact that at the moment of tipping the sum of the moments must be zero because nothing is moving.
 \end{document}
