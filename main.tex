@@ -1,4 +1,4 @@
-\documentclass[twocolumn, letterpaper, 12pt, twoside]{article}
+\documentclass[letterpaper, 12pt]{article}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{wrapfig}
@@ -17,10 +17,21 @@
 
 \begin{document}
 \maketitle
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.1]{American Crane Sasata.jpg}
+\end{figure}
+\begin{center}
+    \large What's a crane's favorite type of music?\\
+    \large Heavy Metal. \\
+    \footnotesize Malini Krejcarek \\
+    \scriptsize Philosopher \\
+    \tiny 500 jokes about cranes
+\end{center}
 
 \section{Introduction}
 The goal of this project was to make a crane capable of lifting a heavy object as fast as possible using as little mass as possible. 
-We were given a chassis, motors, pulleys,  and a microcontroller, everything else we had to make ourselves. 
+We were given a chassis, motors, pulleys,  and a micro-controller, everything else we had to make ourselves. 
 This includes several aluminum scaffolding components, a base made of HDPE, structural braces, and a wooden support implement. 
 
 \section{Design}
@@ -36,7 +47,7 @@ This equation was then put into EES along with an equation that related the torq
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width =\linewidth]{Torque_Speed.png}
+    \includegraphics[width =.45\linewidth]{Torque_Speed.png}
     \caption{A graph of the relationship between the radius of the drive pulley and the vertical velocity of the object being lifted. Torque delivered from the motors is also included for reference.}
     \label{fig:Torque_Speed}
 \end{figure}
@@ -53,7 +64,7 @@ First we repeated an earlier lab procedure to find the center of mass of the cra
 
 \begin{align}
         w_{\text{tip}}= & m_{\text{tip}} * 9.8 \\
-        t_{\text{tip}}= & w_{\text{tip}}*x_{\text{boom}}\label{eq:Torque 1} \\ 
+        t_{\text{tip}}= & w_{\text{tip}}*x_{\text{out}}\label{eq:Torque 1} \\ 
         t_{\text{tip}}= & w_{\text{crane}}*x_{\text{cm}}\label{eq:Torque 2} \\
         x_{\text{cm}}= & \frac{t_{\text{tip}}}{w_{\text{crane}}}
 \end{align}
@@ -70,5 +81,25 @@ First we repeated an earlier lab procedure to find the center of mass of the cra
     \end{split}
 \end{equation}
 
-Equation \ref{eq:Torque 1} and \ref{eq:Torque 2} are made possible by the fact that at the moment of tipping the sum of the moments must be zero because nothing is moving.
+Equation \ref{eq:Torque 1} and \ref{eq:Torque 2} are made possible by the fact that at the moment of tipping the sum of the moments must be zero because nothing should be moving. 
+
+Once the center of mass was found, we could then calculate the mass of the counterweight. 
+
+\begin{align}
+
+\end{align}
+\begin{equation}
+
+\end{equation}
+This equation allowed us to perform a parametric study to find the ideal position and mass of the counterweight.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =.55\linewidth]{Counter Weight.png}
+    \caption{A graph of the relationship between the mass of the counterweight and the vertical velocity of the object being lifted.}
+    \label{fig:Counter Weight.png}
+\end{figure}
+
+
+
 \end{document}
