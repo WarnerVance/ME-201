@@ -5,7 +5,7 @@
 \usepackage{geometry}
 \usepackage{float}
 \usepackage{multicol}
-\geometry{margin=1in}
+\geometry{margin= 1in}
 
   
 \title{%
@@ -38,6 +38,7 @@ We were given a chassis, motors, pulleys,  and a micro-controller, everything el
 This includes several aluminum scaffolding components, a base made of HDPE, structural braces, and a wooden support implement. 
 
 \section{Design: Warner}
+
 \subsection{Pulley System}
 \label{sec:Pulley}
 We decided early on make a simple crane, so that we could focus our efforts on optimization.
@@ -54,8 +55,9 @@ This equation was then put into EES along with an equation that related the torq
     \label{fig:Torque_Speed}
 \end{figure}
 
-We derived the vertical velocity of the object from 
+We derived the vertical velocity of the object using equation \ref{eq:Velocity}.
 \begin{equation}
+    \label{eq:Velocity}
     \text{Velocity}=\frac{2*\pi*{\text{Radius}*\text{Rotational Speed}}}{\text{Number of Lines connected to bucket}}
 \end{equation}
 Where:
@@ -73,13 +75,19 @@ The subsequent parametric study and graph showed that 1 inch was the idea drive 
 \subsection{Counterweight}
 \label{sec:Counterweight}
 We then moved on to calculating both the mass and the position of the counter weight. 
-First we repeated an earlier lab procedure to find the center of mass of the crane using equations    . 
+First we repeated an earlier lab procedure to find the center of mass of the crane using equations \ref{eq: CM1} to \ref{eq: CM2}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =0.6\linewidth]{null (3).png}
+    \caption{A diagram of the crane}
+    \label{fig:Crane}
+\end{figure}
 
 \begin{align}
-        w_{\text{tip}}= & m_{\text{tip}} * 9.8 \\
+        w_{\text{tip}}= & m_{\text{tip}} * 9.8 \label{eq: CM1} \\ 
         t_{\text{tip}}= & w_{\text{tip}}*x_{\text{out}}\label{eq:Torque 1} \\ 
         t_{\text{tip}}= & w_{\text{crane}}*x_{\text{cm}}\label{eq:Torque 2} \\
-        x_{\text{cm}}= & \frac{t_{\text{tip}}}{w_{\text{crane}}}
+        x_{\text{cm}}= & \frac{t_{\text{tip}}}{w_{\text{crane}}} \label{eq: CM2}
 \end{align}
 
 \begin{equation}
@@ -87,21 +95,31 @@ First we repeated an earlier lab procedure to find the center of mass of the cra
         \text{Where:} \\
         m_{\text{tip}} & \text{ is the mass of the object that makes the crane tip} \\
         w_{\text{tip}} & \text{ is the weight of } m_{\text{tip}} \\
-        x_{\text{out}} & \text{ is the x from the center of the crane to the where the mass is hung} \\
+        x_{\text{out}} & \text{ is the x from the lifting side wheel to the where the mass is hung} \\
         t_{\text{tip}} & \text{ is the torque from the object that makes the crane tip} \\
         w_{\text{crane}} & \text{ is the weight of the crane without the counterweight} \\
         x_{\text{cm}} & \text{ is the x from the lifting side wheel to the center of mass of the crane.} \\
+        \text{Note:} & \text{ Check figure \ref{fig:Crane} for a diagram of the crane.}
     \end{split}
 \end{equation}
 
+
+
 Equation \ref{eq:Torque 1} and \ref{eq:Torque 2} are made possible by the fact that at the moment of tipping the sum of the moments must be zero because nothing should be moving. 
 
-Once the center of mass was found, we could then calculate the mass of the counterweight. 
+Once the center of mass was found, we could then calculate the mass of the counterweight. A free body diagram of the pulleys can be found in figure \ref{fig:Pulleys}. This helps 
+\begin{figure}
+    \centering
+    \includegraphics[width =0.6\linewidth]{null (2).png}
+    \caption{A free body diagram of the pulleys}
+    \label{fig:Pulleys}
+\end{figure}
 
 \begin{align}
-& t_{\text{lift}}= \frac{w_\text{lift}}{2}*(x_{\text{out}}-\frac{x_{\text{wheels}}}{2})+ w_{\text{lift}}*(x_\text{out}-x_{\text{pulleys}}-(\frac{x_{\text{wheels}}}{2})) \footnotemark \label{eq:CW 1} \\ 
+& w_{\text{lift}}=m_{\text{lift}}*9.81 \\
+& t_{\text{lift}}= \frac{w_\text{lift}}{2}*x_{\text{out}}+ w_{\text{lift}}*(x_\text{out}-x_{\text{pulleys}}) \footnotemark \label{eq:CW 1} \\ 
 % (x_cm * w_crane) + (((x_wheels/2) + x_cw) * w_cw) = t_lift
-& t_{\text{lift}} = x_{\text{cm}} * w_{\text{crane}} +   (\frac{x_{\text{wheels}}}{2}) + x_{\text{cw}}) * w_{\text{cw}} \label{eq: CW 2} \\
+& t_{\text{lift}} = x_{\text{cm}} * w_{\text{crane}} + x_{\text{cw}} * w_{\text{cw}} \label{eq: CW 2} \\
 & m_{\text{cw}} = \frac{w_{\text{cw}}}{9.81}
 \end{align}
 \footnotetext{Equation \ref{eq:CW 1} was created when we only had one pulley attached to the boom. Luckily the calculated counterweight still worked when we added the second pulley.}
@@ -110,7 +128,9 @@ Where:
  \begin{split}
     & x_{\text{pulleys}}  \text{ is the distance betweens the pulleys and the anchor of the string on the boom } \\
     & x_{\text{cw}}  \text{ is the distance of the counterweight from the crane side wheel} \\
-    & t_{\text{lift}} \text{ is the torque from the object being lifted}
+    & t_{\text{lift}} \text{ is the torque from the object being lifted} \\
+    & m_{\text{lift}} \text{ is the mass of the object being lifted} \\
+    & w_{\text{lift}} \text{ is the weight of the object being lifted} \\
  \end{split}
 \end{equation}
 Equations \ref{eq:CW 1} and \ref{eq: CW 2} are made possible by the fact that at the moment of lifting the sum of the moments must be zero because nothing should be moving.
@@ -124,10 +144,12 @@ This equation allowed us to perform a parametric study to find the ideal positio
 \end{figure}
 
 Figure \ref{fig:Counter Weight.png} came in quite handy as we had to adjust the counterweight several times during the project.
-Eventually we ended up making our counterweight 13 inches long \footnote{This distance refers to the distance from the center mast of to the end of the counterweight. This translates to a $x_{\text{cw}}$ of around 9.969 inches} which translated to a $m_{\text{cw}}$ of 0.7 kg.
+Eventually we ended up making our counterweight boom 13 inches long\footnote{This distance refers to the distance from the center mast of to the end of the counterweight. This translates to a $x_{\text{cw}}$ of around 9.969 inches} which translated to a $m_{\text{cw}}$ of 0.7 kg.
 
 \section{Construction: Sam }
 \section{Testing: Malini}
 
 \section{Future Work}
+
+
 \end{document}
