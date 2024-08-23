@@ -44,10 +44,12 @@ This includes several aluminum scaffolding components, a base made of HDPE, stru
 We decided early on make a simple crane, so that we could focus our efforts on optimization.
 We wanted to lift 2.1 kg, and we designed the crane around it. 
 We did some quick math and determined that a block and tackle system that split the tension in half would be best. 
-Using a spreadsheet, we came up with an equation for the relationship between torque and rotational speed of a motor. 
+Using a spreadsheet, we came up with an equation (equation \ref{eq:Torque-Speed}) for the relationship between torque and rotational speed of a motor. 
 This equation was then multiplied by two to account for the fact that two motors were being used. 
 This equation was then put into EES along with an equation that related the torque to the radius of the pulley and the weight of the object being pulled up.
-
+\begin{equation}
+    \text{torque}=-0.1294*\text{rotational speed}+0.2649 \label{eq:Torque-Speed} 
+\end{equation}
 \begin{figure}[H]
     \centering
     \includegraphics[width =.45\linewidth]{Torque_Speed.png}
@@ -57,10 +59,7 @@ This equation was then put into EES along with an equation that related the torq
 
 We derived the vertical velocity of the object using equation \ref{eq:Velocity}.
 \begin{equation}
-    \begin{split}
-        \text{Velocity}=\frac{2*\pi*{\text{Radius}*\text{Rotational Speed}}}{\text{Number of Lines connected to bucket}}     \label{eq:Velocity} //
-        \text{torque}=-0.1294*\text{rotational speed}+0.2649 \\
-    \end{split}
+        \text{Velocity}=\frac{2*\pi*{\text{Radius}*\text{Rotational Speed}}}{\text{Number of Lines connected to bucket}} \label{eq:Velocity} \\
 \end{equation}
 Where:
 \begin{equation}
@@ -202,6 +201,6 @@ Overall, we would love to see the creative nature of the project kept intact to 
 \includepdf[pages=-]{Wood_Block.pdf}
 
 \section*{Appendix 2}
-
+\includepdf[pages=-]{Final Crane 1 drawing.pdf}
 
 \end{document}
