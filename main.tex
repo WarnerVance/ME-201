@@ -34,20 +34,20 @@
 
 \section{Introduction}
 The goal of this project was to make a crane capable of lifting a heavy object as fast as possible using as little mass as possible. 
-We were given a chassis, motors, pulleys,  and a micro-controller, everything else we had to make ourselves. 
+We were given a chassis, motors, pulleys,  and a microcontroller; everything else we had to make ourselves. 
 This includes several aluminum scaffolding components, a base made of HDPE, structural braces, and a wooden support implement. 
 
 \section{Design: Warner}
 
 \subsection{Pulley System}
-We decided early on make a simple crane, so that we could focus our efforts on optimization.
+We decided early on to make a simple crane, so that we could focus our efforts on optimization.
 We wanted to lift 2.1 kg, and we designed the crane around it. 
 We did some quick math and determined that a block and tackle system that split the tension in half would be best. 
-Using a spreadsheet, we came up with an equation (equation \ref{eq:Torque-Speed}) for the relationship between torque and rotational speed of a motor. 
+Using a spreadsheet, we came up with an equation (Equation \ref{eq:Torque-Speed}) for the relationship between torque and rotational speed of a motor. 
 This equation was then multiplied by two to account for the fact that two motors were being used. 
 This equation was then put into EES along with an equation that related the torque to the radius of the pulley and the weight of the object being pulled up.
 \begin{equation}
-    \text{torque}=-0.1294*\text{rotational speed}+0.2649 \label{eq:Torque-Speed} 
+    \text{torque}=-0.1294 * \text{rotational speed}+0.2649 \label{eq:Torque-Speed} 
 \end{equation}
 \begin{figure}[H]
     \centering
@@ -58,7 +58,7 @@ This equation was then put into EES along with an equation that related the torq
 
 We derived the vertical velocity of the object using equation \ref{eq:Velocity}.
 \begin{equation}
-        \text{Velocity}=\frac{2*\pi*{\text{Radius}*\text{Rotational Speed}}}{\text{Number of Lines connected to bucket}} \label{eq:Velocity} \\
+        \text{Velocity}=\frac{2*\pi*{\text{Radius}*\text{Rotational Speed}}}{\text{Number of Lines connected to bucket}} \label{eq:Velocity}
 \end{equation}
 Where:
 \begin{equation}
@@ -70,11 +70,11 @@ Where:
     \end{split}
 \end{equation}
 
-The subsequent parametric study and graph showed that 1 inch was the idea drive pulley radius because it maximized the vertical velocity of the object being lifted.  This can be seen in Figure \ref{fig:Torque_Speed}.
+The subsequent parametric study and graph showed that 1 inch was the ideal drive pulley radius because it maximized the vertical velocity of the object being lifted.  This can be seen in Figure \ref{fig:Torque_Speed}.
 
 \subsection{Counterweight}
-We then moved on to calculating both the mass and the position of the counter weight. 
-First we repeated an earlier lab procedure to find the center of mass of the crane using equations \ref{eq: CM1} to \ref{eq: CM2}.
+We then moved on to calculating both the mass and the position of the counterweight. 
+First, we repeated an earlier lab procedure to find the center of mass of the crane using Equations \ref{eq: CM1} to \ref{eq: CM2}.
 \begin{figure}[H]
     \centering
     \includegraphics[width =0.6\linewidth]{null (3).png}
@@ -94,7 +94,7 @@ First we repeated an earlier lab procedure to find the center of mass of the cra
         \text{Where:} \\
         m_{\text{tip}} & \text{ is the mass of the object that makes the crane tip} \\
         w_{\text{tip}} & \text{ is the weight of } m_{\text{tip}} \\
-        x_{\text{out}} & \text{ is the x from the lifting side wheel to the where the mass is hung} \\
+        x_{\text{out}} & \text{ distance from the lifting side wheel to where the mass is hung} \\
         t_{\text{tip}} & \text{ is the torque from the object that makes the crane tip} \\
         w_{\text{crane}} & \text{ is the weight of the crane without the counterweight} \\
         x_{\text{cm}} & \text{ is the x from the lifting side wheel to the center of mass of the crane.} \\
@@ -104,7 +104,7 @@ First we repeated an earlier lab procedure to find the center of mass of the cra
 
 
 
-Equation \ref{eq:Torque 1} and \ref{eq:Torque 2} are made possible by the fact that at the moment of tipping the sum of the moments must be zero because nothing should be moving. 
+Equation \ref{eq:Torque 1} and \ref{eq:Torque 2} are made possible by the fact that at the moment of tipping, the sum of the moments must be zero because nothing should be moving. 
 
 Once the center of mass was found, we could then calculate the mass of the counterweight. A free body diagram of the pulleys can be found in figure \ref{fig:Pulleys}. This helps 
 \begin{figure}
@@ -132,7 +132,7 @@ Where:
     & w_{\text{lift}} \text{ is the weight of the object being lifted} \\
  \end{split}
 \end{equation}
-Equations \ref{eq:CW 1} and \ref{eq: CW 2} are made possible by the fact that at the moment of lifting the sum of the moments must be zero because nothing should be moving.
+Equations \ref{eq:CW 1} and \ref{eq: CW 2} are made possible by the fact that at the moment of lifting, the sum of the moments must be zero because nothing should be moving.
 
 This equation allowed us to perform a parametric study to find the ideal position and mass of the counterweight. The resulting graph can be seen in Figure \ref{fig:Counter Weight.png}.
 \begin{figure}[H]
@@ -163,19 +163,19 @@ The first of such tests included merely our basic design for the lifting mechani
 This design included a crane mast and boom with our chosen pulley system attached (see Figure \ref{fig:pic of Crane}), and lacked any attachment to our three given motors. 
 Manually, a team member raised the bucket through the pulley system to evaluate its stability and ensure fluidity of the movement and therefore a dependable base design to thenforth optimize. 
 
-Next, my team initiated a test to determine if the first pulley we 3D printed from polylactic acid (PLA) in the Makerspace with the optimized radius of 1 inch (see figure \ref{fig:Torque_Speed}) for our system would have any issues in lifting the bucket. 
+Next, my team initiated a test to determine if the first pulley we 3D printed from polylactic acid (PLA) in the Makerspace with the optimized radius of 1 inch (see Figure \ref{fig:Torque_Speed}) for our system would have any issues in lifting the bucket. 
 Having decided on a goal of at least 2.01 kilograms to be lifted by the crane, we tested the ability of the printed pulley to support this specific weight. 
 
 When the pulley started to buckle, we reevaluated our use of PLA and that of a 3D printed part due to the hollow nature of the printing technique. 
-Ultimately our team decided to reprint the part with more additional infill and layers of PLA for the walls. 
+Ultimately, our team decided to reprint the part with more additional infill and layers of PLA for the walls. 
 After bolstering the part yielded our replacement pulley, we swapped it for the previous pulley to stage a test otherwise identical to that prior. 
-Although our ultimate design didn’t include this specific pulley due to issues attaching the material to th e motor, our findings in these two tests greatly benefitted our following design adaptations due to our greater understanding of the materials available in the Makerspace.
+Although our ultimate design didn’t include this specific pulley due to issues attaching the material to the motor, our findings in these two tests greatly benefited our following design adaptations due to our greater understanding of the materials available in the Makerspace.
 
 
 \section{Future Work}
 The aspect of the crane designing/building process that we would likely do differently and our advice to future students have lots of overlap in that the advice of starting early should not be disregarded. 
 While we started working right away, we were still overwhelmed by a great number of unknown variables in the equations and procedures that we needed to create and carry out. 
-If we were to go back and reprise our approach to the project, our new attempt would involve us taking minimal time to assign values to variables that would be found subsequently (ex. mass of crane, length of counterweight deployment mechanism).
+If we were to go back and reprise our approach to the project, our new attempt would involve us taking minimal time to assign values to variables that would be found subsequently (e.g, mass of crane, length of counterweight deployment mechanism).
 
 Pivoting to the question of what future projects we would like to see, there are many possibilities, as one of the leading attractions of the project was the great amount of creative freedom we had in designing our cranes. 
 While also undoubtedly being the hardest part of the project, that liberty forced us to think through our choices more thoroughly than mere equations could. 
