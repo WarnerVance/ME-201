@@ -49,12 +49,7 @@ This equation was then put into EES along with an equation that related the torq
 \begin{equation}
     \text{torque}=-0.1294 * \text{rotational speed}+0.2649 \label{eq:Torque-Speed} 
 \end{equation}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width =.45\linewidth]{Torque_Speed.png}
-    \caption{A graph of the relationship between the radius of the drive pulley and the vertical velocity of the object being lifted. Torque delivered from the motors is also included for reference.}
-    \label{fig:Torque_Speed}
-\end{figure}
+
 
 We derived the vertical velocity of the object using equation \ref{eq:Velocity}.
 \begin{equation}
@@ -72,6 +67,13 @@ Where:
 
 The subsequent parametric study and graph showed that 1 inch was the ideal drive pulley radius because it maximized the vertical velocity of the object being lifted.  This can be seen in Figure \ref{fig:Torque_Speed}.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =.45\linewidth]{Torque_Speed.png}
+    \caption{A graph of the relationship between the radius of the drive pulley and the vertical velocity of the object being lifted. Torque delivered from the motors is also included for reference.}
+    \label{fig:Torque_Speed}
+\end{figure}
+
 \subsection{Counterweight}
 We then moved on to calculating both the mass and the position of the counterweight. 
 First, we repeated an earlier lab procedure to find the center of mass of the crane using Equations \ref{eq: CM1} to \ref{eq: CM2}.
@@ -83,7 +85,7 @@ First, we repeated an earlier lab procedure to find the center of mass of the cr
 \end{figure}
 
 \begin{align}
-        w_{\text{tip}}= & m_{\text{tip}} * 9.8 \label{eq: CM1} \\ 
+        w_{\text{tip}}= & m_{\text{tip}} * 9.81 \label{eq: CM1} \\ 
         t_{\text{tip}}= & w_{\text{tip}}*x_{\text{out}}\label{eq:Torque 1} \\ 
         t_{\text{tip}}= & w_{\text{crane}}*x_{\text{cm}}\label{eq:Torque 2} \\
         x_{\text{cm}}= & \frac{t_{\text{tip}}}{w_{\text{crane}}} \label{eq: CM2}
@@ -106,20 +108,15 @@ First, we repeated an earlier lab procedure to find the center of mass of the cr
 
 Equation \ref{eq:Torque 1} and \ref{eq:Torque 2} are made possible by the fact that at the moment of tipping, the sum of the moments must be zero because nothing should be moving. 
 
-Once the center of mass was found, we could then calculate the mass of the counterweight. A free body diagram of the pulleys can be found in figure \ref{fig:Pulleys}. This helps 
-\begin{figure}
-    \centering
-    \includegraphics[width =0.6\linewidth]{null (2).png}
-    \caption{A free body diagram of the pulleys}
-    \label{fig:Pulleys}
-\end{figure}
+Once the center of mass was found, we could then calculate the mass of the counterweight using Equations \ref{eq:1} to \ref{eq:2} . A free body diagram of the pulleys can be found in figure \ref{fig:Pulleys}. 
+
 
 \begin{align}
-& w_{\text{lift}}=m_{\text{lift}}*9.81 \\
+& w_{\text{lift}}=m_{\text{lift}}*9.81 \label{eq:1}\\
 & t_{\text{lift}}= \frac{w_\text{lift}}{2}*x_{\text{out}}+ w_{\text{lift}}*(x_\text{out}-x_{\text{pulleys}}) \footnotemark \label{eq:CW 1} \\ 
 % (x_cm * w_crane) + (((x_wheels/2) + x_cw) * w_cw) = t_lift
 & t_{\text{lift}} = x_{\text{cm}} * w_{\text{crane}} + x_{\text{cw}} * w_{\text{cw}} \label{eq: CW 2} \\
-& m_{\text{cw}} = \frac{w_{\text{cw}}}{9.81}
+& m_{\text{cw}} = \frac{w_{\text{cw}}}{9.81} \label{eq:2}
 \end{align}
 \footnotetext{Equation \ref{eq:CW 1} was created when we only had one pulley attached to the boom. Luckily the calculated counterweight still worked when we added the second pulley.}
 Where:
@@ -132,6 +129,13 @@ Where:
     & w_{\text{lift}} \text{ is the weight of the object being lifted} \\
  \end{split}
 \end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =0.6\linewidth]{null (2).png}
+    \caption{A free body diagram of the pulleys}
+    \label{fig:Pulleys}
+\end{figure}
 Equations \ref{eq:CW 1} and \ref{eq: CW 2} are made possible by the fact that at the moment of lifting, the sum of the moments must be zero because nothing should be moving.
 
 This equation allowed us to perform a parametric study to find the ideal position and mass of the counterweight. The resulting graph can be seen in Figure \ref{fig:Counter Weight.png}.
@@ -146,13 +150,9 @@ Figure \ref{fig:Counter Weight.png} came in quite handy as we had to adjust the 
 Eventually we ended up making our counterweight boom 13 inches long\footnote{This distance refers to the distance from the center mast of to the end of the counterweight. This translates to a $x_{\text{cw}}$ of around 9.969 inches} which translated to a $m_{\text{cw}}$ of 0.7 kg.
 
 \section{Construction: Sam }
-At the beginning of our endeavor, we decided to make a simple crane that would lift a 2.1kg mass using a 1-inch radius pulley that we would 3D print with PLA from the Makerspace.  
-Firstly, we needed a base, boom, and mast for our crane.  
-We made a base out of HDPE from the teamlab to lift up the overall structure of the crane so that none of the screws in the chassis would get in the way of any construction.  
-We precisely cut parts of square aluminum for the mast, boom, counterweight boom, and boom braces in the team lab and drilled a considerable number of holes in them. 
-Then, we used a lot of Alloy Steel Socket Head Screws and their corresponding nuts to secure the crane structure.  
-In our original design, we fabricated a 1 inch radius 3D printed PLA pulley in the makerspace with hubs on both sides of the pulley so that we could drill a hole through each hub and place set screws to attach the pulley to the motor.  
-Each motor would rest on an L bracket. A render of this design can be found in Figure \ref{fig:Crane_Render_1}.
+We set out to build a simple crane capable of lifting a 2.1 kg mass using a 1-inch radius pulley, which we 3D printed from PLA. Our initial design featured a base, boom, and mast. The base was crafted from HDPE to ensure that screws in the chassis wouldn’t interfere with the construction. We used square aluminum for the mast, boom, counterweight boom, and boom braces, which we precisely cut and drilled. Alloy steel socket head screws and corresponding nuts were used to secure the crane's structure.
+
+In our original setup, we used a 3D printed PLA pulley with hubs on both sides for set screws to attach it to the motor. Each motor was mounted on L brackets. However, this design failed because the PLA pulley was too weak to hold the set screws securely, and the L brackets did not provide adequate support for the motors. You can see this original design in Figure \ref{fig:Crane_Render_1}.
 
 \begin{figure}[H]
     \centering
@@ -161,7 +161,11 @@ Each motor would rest on an L bracket. A render of this design can be found in F
     \caption{A 3D model of the original crane design.}
 \end{figure}
 
-However, this design ultimately failed.  The PLA of the pulley was too weak for the set screws to be in place, and the L brackets were not strong enough to keep the blue motors sturdy while functioning.  Therefore, we had to create a new design.  We decided to create a vertical wood support from the team lab and screwed it in the side of the base.  After that, we vertically positioned each motor and screwed them in the wood support.   Then, we 3D printed two small gears for each motor and one big gear out of PLA Carbon Fiber in the makerspace to make sure the power from the motors doesn’t destroy them.  We drilled holes through the center of each small gear and screwed them into the motor.  We then carefully cut a slim piece of HDPE using the saw in the lab and drilled two holes in it.  One hole was for securing it to the wooden support, the other acted as an axle for the big gear so it could spin.  Then, we drilled a hole in the center of the big gear slightly larger than the hole in the slim HDPE piece so that it can spin freely with minimal friction from the screw.  Then, we drilled two holes through both the big gear and our .75 inch radius pulley and put two .5 inch screws through them and tightened by screwing a nut on the back of each screw.  Finally, we screwed the big gear to the slim HDPE piece with nuts in front and behind it to keep it from falling out of the small gears below it.   Afterwards, we focused on our counterweight.  We decided that our yellow motor was going to pull in our measured .7kg counterweight in towards the base through a string and then back out when needed.  So, we decided to zip tie the yellow motor to our boom brace and screw in another .75in pulley.  We then put our counterweight in a ziplock bag, tied it with a rope, connected it to the end of the counterweight boom,  and connected the counterweight and the pulley with string.  Lastly, we put extensions to both our pulleys to keep the strings from falling out and getting in between the gears. An image of this design can be found in Figure \ref{fig: Crane_render_2}
+To resolve these issues, we revised our design significantly. We created a vertical wood support and attached it to the base, which allowed us to mount the motors directly to this support. We then 3D printed two small gears for each motor and a larger gear from PLA to ensure greater durability. The small gears were mounted on the motors, while the large gear was fixed to a slim HDPE piece, which acted as an axle. This setup minimized friction and provided better stability.
+
+For the counterweight system, we used a yellow motor to manage a 0.7 kg counterweight. The counterweight was placed in a ziplock bag, tied with a rope, and connected to the counterweight boom via string. To facilitate the counterweight movement, we added a second 0.75-inch pulley and connected it with string. Extensions were added to both pulleys to prevent the strings from falling out and interfering with the gears.
+
+These changes effectively addressed the shortcomings of the initial design. The improved pulley and gear system, along with the reinforced motor support and effective counterweight management, resulted in a more reliable and robust crane capable of performing its intended function. You can see a render of this in Figure \ref{fig: Crane_render_2}.
 
 \begin{figure}[H]
     \centering
